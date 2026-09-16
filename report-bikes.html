@@ -6530,7 +6530,7 @@ function handleCSVUpload(event){
   <div class="tab active" onclick="showPage('overview',this)">Overview</div>
   
   
-  
+  <div class="tab" onclick="showPage('bikes',this)">FF Bikes</div>
   
   <div class="tab" onclick="showPage('errors',this)">🔍 Errors</div>
   <div class="tab" onclick="showPage('drivers',this)">👤 Drivers</div>
@@ -6611,7 +6611,37 @@ function handleCSVUpload(event){
 
 
 <!-- ══ BIKES ══ -->
-
+<div class="page" id="page-bikes" style="">
+  <div id="bikes-insight" class="insight warn"><strong>Error rate increased</strong> by 0.26pp to 0.43% chargeable. Friday was the worst day at 1.14%; Thursday the best at 0.20%. Top error type: <strong>Flowers not received - Parcel held (DPD)</strong> (7 cases). DOT: 94%. Box return rate: 34%. Another good week, errors trending downwars</div>
+  <div class="kpi-row" id="bikes-kpis">
+    <div class="kpi"><div class="v">4,668</div><div class="l">Total Orders</div></div>
+    <div class="kpi warn"><div class="v">0.43%</div><span class="delta up">▲ 0.26pp vs WK36</span><div class="l">Chargeable Rate</div></div>
+    <div class="kpi"><div class="v">0.56%</div><div class="l">Total Error Rate</div></div>
+    <div class="kpi"><div class="v">26</div><div class="l">Total Errors</div></div>
+    <div class="kpi warn"><div class="v">20</div><div class="l">Chargeable Errors</div></div>
+    <div class="kpi"><div class="v">94%</div><div class="l">DOT</div></div>
+    <div class="kpi"><div class="v">34%</div><div class="l">Box Return Rate</div></div></div>
+  <div class="row2">
+    <div class="card"><h3>Rider Error Count — This Week</h3><div class="chart-wrap" style="--chart-h: 300px;"><canvas id="chart-bikes-riders" style="display: block; box-sizing: border-box; height: 300px; width: 1063px;" width="886" height="250"></canvas></div></div>
+    <div class="card"><h3>Total vs Chargeable Error Rate Trend</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-bikes-trend" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+  </div>
+  <div class="row1">
+    <div class="card"><h3>Top Error Types — Dynamic Weekly Trend</h3><div class="chart-wrap" style="--chart-h: 300px;"><canvas id="chart-bikes-error-trend" style="display: block; box-sizing: border-box; height: 300px; width: 2181px;" width="1817" height="250"></canvas></div></div>
+  </div>
+  <div class="row2">
+    <div class="card scroll-wrap"><h3>Rider Breakdown</h3><div id="bikes-rider-table"><table class="tbl"><thead><tr><th>Rider</th><th style="text-align:right">Chargeable Errors</th></tr></thead><tbody><tr><td>Daniel Biss FFBikes</td><td style="text-align:right;font-weight:700">4</td></tr><tr><td>Joe FFBikes</td><td style="text-align:right;font-weight:700">1</td></tr><tr><td>Harry FFbikes</td><td style="text-align:right;font-weight:700">1</td></tr><tr><td>Tom Morgan FFBikes</td><td style="text-align:right;font-weight:700">1</td></tr><tr><td>Calum Taylor FFBikes</td><td style="text-align:right;font-weight:700">1</td></tr></tbody></table></div></div>
+    <div class="card"><h3>Error Type Split</h3><div class="chart-wrap" style="--chart-h: 300px;"><canvas id="chart-bikes-etypes" style="display: block; box-sizing: border-box; height: 300px; width: 1063px;" width="886" height="250"></canvas></div></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h3>Error Rate by Day</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-bikes-days" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+    <div class="card"><h3>Errors by Day</h3><div id="bikes-day-table"><table class="tbl"><thead><tr><th>Day</th><th>Orders</th><th>Errors</th><th>Rate</th></tr></thead><tbody><tr><td>Monday</td><td>964</td><td>8</td><td class="w">0.83%</td></tr><tr><td>Tuesday</td><td>864</td><td>2</td><td class="g">0.23%</td></tr><tr><td>Wednesday</td><td>882</td><td>3</td><td class="g">0.34%</td></tr><tr><td>Thursday</td><td>997</td><td>2</td><td class="g">0.20%</td></tr><tr><td>Friday</td><td>961</td><td>11</td><td class="b">1.14%</td></tr><tr><td>Total</td><td>4,668</td><td>26</td><td class="w">0.56%</td></tr></tbody></table></div></div>
+  </div>
+  <div class="row1">
+  </div>
+  <div class="row1">
+    <div class="card"><h3>Actions for Improvement</h3><div id="actions-bikes"><div class="no-actions">No actions logged this week.</div></div></div>
+  </div>
+</div>
 
 <!-- ══ DPD ══ -->
 
@@ -6652,12 +6682,12 @@ function handleCSVUpload(event){
     <div class="kpi warn"><div class="v">57</div><div class="l">Gift Errors</div></div>
     <div class="kpi bad"><div class="v">DPD</div><div class="l">Most Errors (94)</div></div></div>
     <div class="row2">
-      <div class="card"><h3>Errors by Courier</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-courier" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
-      <div class="card"><h3>Top Error Types</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-types" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
+      <div class="card"><h3>Errors by Courier</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-courier" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+      <div class="card"><h3>Top Error Types</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-types" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
     </div>
     <div class="row2">
-      <div class="card"><h3>Errors by Day</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-day" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
-      <div class="card"><h3>Gift vs Core Split</h3><div class="chart-wrap" style="--chart-h: 300px;"><canvas id="chart-weekly-gift" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
+      <div class="card"><h3>Errors by Day</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-weekly-day" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+      <div class="card"><h3>Gift vs Core Split</h3><div class="chart-wrap" style="--chart-h: 300px;"><canvas id="chart-weekly-gift" style="display: block; box-sizing: border-box; height: 300px; width: 1063px;" width="886" height="250"></canvas></div></div>
     </div>
     <div class="row1">
       <div class="card scroll-wrap"><h3>Top Drivers / Riders</h3><div id="weekly-driver-table"><table class="tbl"><thead><tr><th>Driver</th><th>Courier</th><th style="text-align:right">Errors</th></tr></thead><tbody><tr><td>DPD</td><td style="color:#666;font-size:11px">DPD</td><td style="text-align:right;font-weight:700">94</td></tr><tr><td>Patryk Witkowski Global</td><td style="color:#666;font-size:11px">GSG</td><td style="text-align:right;font-weight:700">17</td></tr><tr><td>Abel and Cole Sharpness</td><td style="color:#666;font-size:11px">A&amp;C</td><td style="text-align:right;font-weight:700">14</td></tr><tr><td>(unknown)</td><td style="color:#666;font-size:11px">Bikes</td><td style="text-align:right;font-weight:700">14</td></tr><tr><td>Abel and Cole Cambridge</td><td style="color:#666;font-size:11px">A&amp;C</td><td style="text-align:right;font-weight:700">11</td></tr><tr><td>DannyGSG Global</td><td style="color:#666;font-size:11px">GSG</td><td style="text-align:right;font-weight:700">10</td></tr><tr><td>Alex Isvoranu Global</td><td style="color:#666;font-size:11px">GSG</td><td style="text-align:right;font-weight:700">6</td></tr><tr><td>Sanjay Global</td><td style="color:#666;font-size:11px">GSG</td><td style="text-align:right;font-weight:700">6</td></tr><tr><td>Abel and Cole Warrington</td><td style="color:#666;font-size:11px">A&amp;C</td><td style="text-align:right;font-weight:700">5</td></tr><tr><td>Daniel Biss FFBikes</td><td style="color:#666;font-size:11px">Bikes</td><td style="text-align:right;font-weight:700">5</td></tr></tbody></table></div></div>
@@ -6677,12 +6707,12 @@ function handleCSVUpload(event){
     <div class="kpi bad"><div class="v">28%</div><div class="l">Gift Share of All Errors</div></div>
     <div class="kpi bad"><div class="v">DPD—53</div><div class="l">Highest Gift Errors</div></div></div>
   <div class="row2">
-    <div class="card"><h3>Gift vs Core Errors — Weekly Trend</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-trend" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
-    <div class="card"><h3>Gift Errors by Courier — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-courier" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
+    <div class="card"><h3>Gift vs Core Errors — Weekly Trend</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-trend" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+    <div class="card"><h3>Gift Errors by Courier — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-courier" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
   </div>
   <div class="row2">
-    <div class="card"><h3>Gift Errors by Day — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-day" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
-    <div class="card"><h3>Top Gift Error Types — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-types" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas></div></div>
+    <div class="card"><h3>Gift Errors by Day — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-day" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
+    <div class="card"><h3>Top Gift Error Types — This Week</h3><div class="chart-wrap" style="--chart-h: 260px;"><canvas id="chart-gift-types" style="display: block; box-sizing: border-box; height: 260px; width: 1063px;" width="886" height="216"></canvas></div></div>
   </div>
   <div class="row1">
     <div class="card scroll-wrap"><h3>Top Drivers / Riders — Gift Errors This Week</h3><div id="gift-driver-table"><table class="tbl"><thead><tr><th>Driver/Rider</th><th>Courier</th><th style="text-align:right">Gift Errors</th></tr></thead><tbody><tr><td>DPD</td><td style="color:#666;font-size:11px">DPD</td><td style="text-align:right;font-weight:700">53</td></tr><tr><td>(unknown)</td><td style="color:#666;font-size:11px">Bikes</td><td style="text-align:right;font-weight:700">2</td></tr><tr><td>Daniel Biss FFBikes</td><td style="color:#666;font-size:11px">Bikes</td><td style="text-align:right;font-weight:700">2</td></tr></tbody></table></div></div>
